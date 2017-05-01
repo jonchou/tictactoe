@@ -1,0 +1,22 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "tic tac toe",
+  "main": "tictactoe.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jonchou/tictactoe.git"
+  },
+  "author": "Jonathan Chou",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jonchou/tictactoe/issues"
+  },
+  "homepage": "https://github.com/jonchou/tictactoe#readme",
+  "dependencies": {
+    "prompt": "^1.0.0"
+  }
+}
