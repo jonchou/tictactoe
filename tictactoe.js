@@ -8,7 +8,24 @@ var Board = function() {
   ];
 };
 
-Board.prototype.checkBoard = (player) => {
+Board.prototype.checkBoard = function(player) {
+  // if 3 in a row, return true
+  // hardcode all cases?
+
+  if (
+    this.board[0][0] === player && this.board[1][0] === player && this.board[2][0] === player ||
+    this.board[0][0] === player && this.board[3][0] === player && this.board[6][0] === player ||
+    this.board[0][0] === player && this.board[4][0] === player && this.board[8][0] === player ||
+    this.board[1][0] === player && this.board[4][0] === player && this.board[7][0] === player ||
+    this.board[2][0] === player && this.board[5][0] === player && this.board[8][0] === player ||
+    this.board[3][0] === player && this.board[4][0] === player && this.board[5][0] === player ||
+    this.board[6][0] === player && this.board[7][0] === player && this.board[8][0] === player ||
+    this.board[2][0] === player && this.board[4][0] === player && this.board[6][0] === player
+    ) {
+    return true
+  }
+
+
   return false;
 };
 
@@ -60,14 +77,13 @@ Board.prototype.showBoard = function() {
 
 const playX = (board) => {
   prompt.get(['x-move'], (err, result) => {
-    console.log(result);
     // add to board
     board.addMove(result['x-move'], 'x');
     // check if x won
     board.showBoard();
 
     if (board.checkBoard('x')) {
-
+      console.log('x wins!');
     } else {
       playO(board);
     }
@@ -76,14 +92,13 @@ const playX = (board) => {
 
 const playO = (board) => {
   prompt.get(['o-move'], (err, result) => {
-    console.log(result);
     // add to board
     board.addMove(result['o-move'], 'o');
     // check if x won
     board.showBoard();
 
     if (board.checkBoard('o')) {
-
+      console.log('o wins!');
     } else {
       playX(board);
     }
