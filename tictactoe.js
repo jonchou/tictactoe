@@ -9,7 +9,7 @@ var Board = function() {
 };
 
 Board.prototype.checkBoard = (player) => {
-  console.log('board x');
+  return false;
 };
 
 Board.prototype.addMove = function(position, player) {
@@ -49,15 +49,13 @@ Board.prototype.addMove = function(position, player) {
 };
 
 Board.prototype.showBoard = function() {
-  for (var i = 0; i < this.board.length; i++) {
-    console.log(this.board[i][0]);
-  }
 
-  console.log('  |  |  ');
-  console.log('--+--+--');
-  console.log('  |  |  ');
-  console.log('--+--+--');
-  console.log('  |  |  ');
+  console.log(this.board[0][0] + '|' + this.board[1][0] + '|' + this.board[2][0]);
+  console.log('-+-+-');
+  console.log(this.board[3][0] + '|' + this.board[4][0] + '|' + this.board[5][0]);
+  console.log('-+-+-');
+  console.log(this.board[6][0] + '|' + this.board[7][0] + '|' + this.board[8][0]);
+
 }
 
 const playX = (board) => {
@@ -65,12 +63,30 @@ const playX = (board) => {
     console.log(result);
     // add to board
     board.addMove(result['x-move'], 'x');
-    // board.checkBoard('x');
     // check if x won
     board.showBoard();
 
-    // if not
-      // play y
+    if (board.checkBoard('x')) {
+
+    } else {
+      playO(board);
+    }
+  });
+};
+
+const playO = (board) => {
+  prompt.get(['o-move'], (err, result) => {
+    console.log(result);
+    // add to board
+    board.addMove(result['o-move'], 'o');
+    // check if x won
+    board.showBoard();
+
+    if (board.checkBoard('o')) {
+
+    } else {
+      playX(board);
+    }
   });
 };
 
